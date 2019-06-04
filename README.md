@@ -22,13 +22,13 @@ It is up to you to select your stack. We provide two options below. Feel free to
 
 ## Requirements
 
-*   You can use whatever libraries, task runners and build processes you
+*   You can use whatever libraries, task runners, databases and build processes you
     like. The tools named in the options are the only requirements. You can write in JavaScript, but TypeScript is encouraged (no CoffeeScript, etc). 
 
 
 ### Option A
 
-*   Setup a serverless application. A minimum a backend and a frontend is required. 
+*   Setup a [serverless](https://serverless.com/) application. A minimum a backend and a frontend is required. 
     For the frontend part you should use [React](https://reactjs.org/) and for the you can select from services of the [AWS Cloud](https://aws.amazon.com) for storing items and handling requests.
     
 ### Option B
