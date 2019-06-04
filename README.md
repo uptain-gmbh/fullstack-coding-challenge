@@ -1,4 +1,4 @@
-# Adapt Fullstack Coding Challenge
+# uptain Fullstack Coding Challenge
 
 Seems like you're trying out for a position at
 [Uptain](https://uptain.de) or you've found this and would like to
