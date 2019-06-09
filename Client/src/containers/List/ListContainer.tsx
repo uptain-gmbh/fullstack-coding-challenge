@@ -13,7 +13,7 @@ const mapStateToProps = ({ boats }: IRootReducer): IAppStateProps => ({
 });
 
  const mapDispatchToProps = (dispatch: Dispatch<Action>): IAppDispatchProps => ({
-  fetchSubjects: () => dispatch(actionFetchWishlistProducts()),
+  fetchBoatsList: () => dispatch(actionFetchWishlistProducts()),
 });
 
  export const ListContainer =  connect(
