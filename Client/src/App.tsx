@@ -1,4 +1,9 @@
 import React, { FunctionComponent } from 'react';
-import { ListContainer } from './containers/List';
+import { ListContainer, HeaderContainer } from './containers';
+import { Header, Main } from './components';
 
-export const App:FunctionComponent = () => <ListContainer/>
+export const App:FunctionComponent = () => 
+    <Main>
+        <HeaderContainer/>
+        <ListContainer/>
+    </Main>

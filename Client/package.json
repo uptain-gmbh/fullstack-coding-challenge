@@ -19,7 +19,10 @@
   "author": "firas hamila",
   "license": "ISC",
   "dependencies": {
+    "@types/faker": "^4.1.5",
     "@types/react-redux": "^7.0.9",
+    "@types/styled-components": "^4.1.16",
+    "faker": "^4.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",

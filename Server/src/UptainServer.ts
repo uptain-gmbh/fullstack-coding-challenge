@@ -1,6 +1,6 @@
 import {Application} from 'express';
 import bodyParser from 'body-parser';
-import { getList } from './controllers';
+import { getList, addBoat } from './controllers';
 
 import { Logger } from '@overnightjs/logger';
 
@@ -25,6 +25,7 @@ export class UptainServer {
          });
         this.application.get('/', (req, res) => res.send(this.DEV_MSG));
         this.application.get('/Boats/List', getList );
+        this.application.post('/Boats/Add', addBoat );
     }
 
     public start(port: number): void {

@@ -1,11 +1,11 @@
+import { IBoat, IAction } from './../../models';
 import { of } from 'rxjs';
-import { ajax } from 'rxjs/ajax';
-import { catchError, map, switchMap, tap } from 'rxjs/operators';
+import { ajax, AjaxResponse } from 'rxjs/ajax';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import { combineEpics, ofType } from 'redux-observable';
-import { FETCH_BOATS_LIST } from '../constants';
-import { IBoat } from '../../models';
-import { getBoatListRoute } from '../../utils';
-import { actionSetWishlistProducts } from '../actions';
+import { FETCH_BOATS_LIST, ADD_BOAT } from '../constants';
+import { getBoatListRoute, getAddBoatRoute } from '../../utils';
+import { actionSetBoats, actioAddBoatToLocalList } from '../actions';
 
 
  const FetchBoatsEpic = (action$: any) =>
@@ -18,7 +18,21 @@ import { actionSetWishlistProducts } from '../actions';
       console.error(`[FETCH-BOOKS-EPICS-ERROR] : ${err}`);
       return of({ data:[]});
     }),
-    map(({data: boatsListResponce}: {data: IBoat[]}) => actionSetWishlistProducts(boatsListResponce))
+    map(({data: boatsListResponce}: {data: IBoat[]}) => actionSetBoats(boatsListResponce))
   );
 
- export const rootEpics = combineEpics(FetchBoatsEpic);
+  const AddBoatEpic = (action$: any) =>
+  action$.pipe(
+     ofType(ADD_BOAT),
+     switchMap(({payload: boat}) => 
+        ajax.post(getAddBoatRoute(), boat)
+     ),
+     catchError(err => {
+       console.error(`[FETCH-BOOKS-EPICS-ERROR] : ${err}`);
+       return of({ data:{}});
+     }),
+     map<AjaxResponse, IAction<IBoat>>(({response:{data}}) => actioAddBoatToLocalList(data))
+   );
+
+
+ export const rootEpics = combineEpics(FetchBoatsEpic, AddBoatEpic);

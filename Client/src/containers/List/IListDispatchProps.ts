@@ -1,10 +1,6 @@
-
-
-
-
-import { AnyAction } from "redux";
+import { Action } from 'redux';
 
 export interface IAppDispatchProps {
-  fetchBoatsList: () => AnyAction;
+  fetchBoatsList: () => Action;
 }
   
