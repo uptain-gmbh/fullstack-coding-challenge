@@ -1,28 +1,42 @@
-import React, { Component } from 'react';
-import { getListRoute } from './utils/apiRoutes';
+import React, {Fragment, FunctionComponent, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { Action, Dispatch } from "redux";
+import { actionFetchWishlistProducts } from './store/actions/index';
+import { IBoat } from '../../Server/src/models/IBoat';
+import { IRootReducer } from './store/reducers';
 
-class App extends Component {
+export interface IAppDispatchProps{
+  fetchSubjects: () => Action
+}
 
-  public render() {
+export interface IAppStateProps{
+  boats: IBoat[];
+}
 
-    async function callUptainServer() {
-      try {
-        const response = await fetch(getListRoute()).then((res) => res.json());
-        console.log('Uptain Server responce: ' + response);
-      } catch (err) {
-        console.log(err);
-      }
-    }
 
-    callUptainServer();
-
+export const App:FunctionComponent<IAppStateProps & IAppDispatchProps> = ({boats, fetchSubjects}) => {
+    useEffect(()=>{
+      fetchSubjects()
+    },[])
     return (
-      <div>
-        <p>Firaaas Hamila</p>
-      </div>
+      <Fragment>
+          {boats.map((boat) => (
+            <p key={boat.id}>{boat.name}</p>
+          )
+          )}
+      </Fragment>
     );
   }
 
-}
+const mapStateToProps = ({ boats }: IRootReducer): IAppStateProps => ({
+  boats
+});
 
-export default App;
+ const mapDispatchToProps = (dispatch: Dispatch<Action>): IAppDispatchProps => ({
+  fetchSubjects: () => dispatch(actionFetchWishlistProducts()),
+});
+
+ export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

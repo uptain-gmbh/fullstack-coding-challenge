@@ -19,8 +19,14 @@
   "author": "firas hamila",
   "license": "ISC",
   "dependencies": {
+    "@types/react-redux": "^7.0.9",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
+    "redux": "^4.0.1",
+    "redux-actions": "^2.6.5",
+    "redux-observable": "^1.1.0",
+    "rxjs": "^6.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

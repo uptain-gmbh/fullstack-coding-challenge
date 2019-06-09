@@ -1,1 +1,1 @@
-export const getListRoute = () => `http://localhost:5000/Boats/List`;
+export const getBoatListRoute = () => `http://localhost:5000/Boats/List`;
