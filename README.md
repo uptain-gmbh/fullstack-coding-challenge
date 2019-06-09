@@ -1,11 +1,27 @@
+## Developper after finishing the challenge 😜
+yeah I want to be part of uptain team, I forked this repo and just finished working on it , I used: 
+- React
+- Redux
+- RxJs
+- NodeJS
+- Typescript
+
+### Run the Big guy 
+ - Run Both Server and Client with one Command ❤️: in the root Directory  ```npm run start-project```
+ - run the Server: go into the Server folder and => ``` npm run start-dev```
+ - run the Client: go into the Client folder and ==> ```npm run start```
+
+ ### install Deps 
+ - Server: go into the Server folder and => ``` npm i```
+ - Client: go into the Client folder and ==> ```npm i```
+
+
 # uptain Fullstack Coding Challenge
 
 Seems like you're trying out for a position at
 [Uptain](https://uptain.de) or you've found this and would like to
-apply.  Fork this repo and go at it ;)
+apply.  Fork this repo and go at it ;) ==> 
 
-Your goal is to set up a full serverless application stack, where users will be able to add items to a list and view this list. Once you are done with the challenge, please fire up a
-Pull Request and we will get in touch.
 
 ## Brief
 

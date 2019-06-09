@@ -1,0 +1,24 @@
+{
+  "name": "fullstack-coding-challenge",
+  "version": "1.0.0",
+  "author": "firas hamila",
+  "description": "Seems like you're trying out for a position at [Uptain](https://uptain.de) or you've found this and would like to apply.  Fork this repo and go at it ;)",
+  "main": "index.js",
+  "scripts": {
+    "server": "npm run start-dev --prefix Server",
+    "client": "npm run start --prefix Client",
+    "start-project": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/firashamila33/fullstack-coding-challenge.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/firashamila33/fullstack-coding-challenge/issues"
+  },
+  "homepage": "https://github.com/firashamila33/fullstack-coding-challenge#readme",
+  "dependencies": {
+    "concurrently": "^4.1.0"
+  }
+}

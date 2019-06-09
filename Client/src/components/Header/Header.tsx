@@ -16,7 +16,6 @@ interface IError  {
 
 export const  Header: FunctionComponent<IHeaderStateProps & IHeaderDispatchProps> = ({boats, addBoat}) => {
 
-    const [newBoat, setNewBoat] = useState<IBoat>({id: "0", name:"", price: 0});
     const handleButtonCick = () => {
         const name = faker.lorem.word();
         const price = faker.random.number();
