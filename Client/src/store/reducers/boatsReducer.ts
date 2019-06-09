@@ -1,4 +1,3 @@
-/* tslint:disable */
 import { SET_BOATS_LIST } from '../constants';
 import { IBoat, IAction } from '../../models';
 export const boatsInitialState: IBoat[] = []
