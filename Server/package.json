@@ -2,9 +2,9 @@
   "name": "uptain-server",
   "version": "1.0.0",
   "description": "a server to use in a coding challenge",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-dev": "nodemon --config \"./util/nodemon.json\"/"
   },
   "keywords": [
     "uptaingm",
@@ -13,6 +13,21 @@
     "junior",
     "dev"
   ],
-  "author": "firas",
-  "license": "ISC"
+  "author": "firas Hamila",
+  "license": "ISC",
+  "dependencies": {
+    "@overnightjs/logger": "^1.1.9",
+    "express": "^4.17.1",
+    "http-status-codes": "^1.3.2"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/express": "^4.17.0",
+    "@types/node": "^12.0.7",
+    "nodemon": "^1.19.1",
+    "ts-node": "^8.2.0",
+    "tsc": "^1.20150623.0",
+    "tslint": "^5.17.0",
+    "typescript": "^3.5.1"
+  }
 }
