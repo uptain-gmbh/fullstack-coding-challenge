@@ -1,0 +1,91 @@
+input {
+  font-size: calc(10px + 2vmin);
+}
+
+input[type=text]{
+  width: 100%;
+}
+
+input[type=submit]{
+  min-width: 20vh;
+  background-color: #5dadbe;
+  border-color: #6fb6c5;
+}
+
+input:active[type=submit]{
+  background-color: #282c34;
+  border-color: #b7bdc8;
+}
+
+.App {
+  background-color: #282c34;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-child-1 {
+  background-color: #282c34;
+  min-height: 5vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.App-child-2 {
+  background-color: #282c34;
+  min-height: 95vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* Children Divs of the App-child-2 */
+.App-div {
+  width: 45%;
+  margin: 1%;
+  padding: 1%;
+  border: 1px solid white;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-div-header {
+  font-weight: bold;
+  text-align: center;
+}
+
+.App-oneItemDiv {
+  color: #61dafb;
+  border-bottom: 1px solid rgb(155, 155, 155);
+  min-width: 25vh;
+  margin: 2vh;
+  display: flex;
+  justify-content: center;
+}
+
+.App-flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.App-flexRow, .App-submitDiv {
+  display: flex;
+  flex-direction: row;
+}
+
+.App-submitDiv {
+  justify-content: center;
+}
+
+.Input-div {
+  width: 48%;
+  padding: 1%;
+}
