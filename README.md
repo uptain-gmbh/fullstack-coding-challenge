@@ -1,3 +1,14 @@
+There are just three steps to start the Application:
+
+1. npm install 
+2. npm run frontend-install
+3. npm run dev
+
+https://localhost:5000/api/items  --> for the server
+https://localhost:3000            --> for the frontend
+
+------------------------------------------------------------------------------------------------------------------
+
 # uptain Fullstack Coding Challenge
 
 Seems like you're trying out for a position at
