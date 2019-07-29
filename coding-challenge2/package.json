@@ -1,0 +1,22 @@
+{
+  "name": "coding-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "frontend-install": "cd frontend && npm install",
+    "test": "node server.js",
+    "server": "node server.js",
+    "frontend": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\"  \"npm run frontend\""
+  },
+  "author": "Turan Asik",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^4.1.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
