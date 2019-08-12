@@ -7,6 +7,9 @@ plugins:
 
 custom:
   tableName: 'items-${self:provider.stage}'
+  dynamodb:
+    stages:
+      - dev
 
 provider:
   name: aws
