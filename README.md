@@ -29,7 +29,7 @@ It is up to you to select your stack. We provide two options below. Feel free to
 ### Option A
 
 *   Setup a [serverless](https://serverless.com/) application. A minimum a backend and a frontend is required. 
-    For the frontend part you should use [React](https://reactjs.org/) and for the you can select from services of the [AWS Cloud](https://aws.amazon.com) for storing items and handling requests.
+    For the frontend part you should use [React](https://reactjs.org/) and for the you can select from services of the [AWS Cloud](https://aws.amazon.com) for storing items and handling requests. The frontend file can be hosted locally, so you dont need to upload to anywhere.
     
 ### Option B
 
