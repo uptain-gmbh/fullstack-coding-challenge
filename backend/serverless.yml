@@ -1,0 +1,28 @@
+plugins: # List of plugins of use on application
+    - serverless-offline # Get your serverless configuration and run the server local
+    - serverless-plugin-typescript-express
+
+# Project name on the infrastructure created
+service: node-typescript-serverless
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  memorySize: 192
+  timeout: 10
+  stage: production
+  region: eu-central-1
+
+functions: # The array with definitions of lambda functions of the your application 
+  getAllBasketItems: # Lambda function name
+    handler: src/server.handler # The function name mapped of the application
+    events: # Array of events that call the function
+      - http: # Type of event, the http event selected, it's event is a endpoint mapped on api gateway
+          path: /api/getAllBasketItems
+          method: get
+  addItemToBasket:
+    handler: dist/server.handler
+    events:
+      - http:
+          path: /api/addBasketItem
+          method: post
