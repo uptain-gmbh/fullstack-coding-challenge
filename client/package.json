@@ -1,5 +1,5 @@
 {
-	"name": "frontend",
+	"name": "client",
 	"version": "0.1.0",
 	"private": true,
 	"proxy": "https://popc016jrl.execute-api.eu-central-1.amazonaws.com/production",

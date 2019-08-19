@@ -16,11 +16,7 @@ class App {
 		this.app.use(cors());
 		this.app.use(json()); // parser for request json format
 		this.app.use(urlencoded({ extended: false }));
-		this.app.use(express.static(__dirname + '/../frontend'));
 		this.app.use('/', routes); // use routes for the api
-		this.app.get('/*', (_req, res) => {
-			res.sendFile(join(__dirname + '/../frontend/index.html'));
-		});
 	}
 }
 
