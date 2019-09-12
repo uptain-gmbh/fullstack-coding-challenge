@@ -1,5 +1,21 @@
 # uptain Fullstack Coding Challenge
 
+## Introduction
+
+Tiny Node.js webapp demonstrating client-server-architecture to create, list and delete objects on the server. Data will be persisted in the initialized objects.json database file.
+
+Tech-stack: Node.js + Express + PUG + TypeScript
+
+## Build & run
+
+```
+npm install && npm run build && npm start
+```
+
+
+
+
+
 Seems like you're trying out for a position at
 [Uptain](https://uptain.de) or you've found this and would like to
 apply.  Fork this repo and go at it ;)
