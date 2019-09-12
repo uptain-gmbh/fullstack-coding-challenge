@@ -1,0 +1,31 @@
+{
+  "name": "fullstack-coding-challenge",
+  "version": "1.0.0",
+  "description": "Seems like you're trying out for a position at [Uptain](https://uptain.de) or you've found this and would like to apply.  Fork this repo and go at it ;)",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p .",
+    "start": "node ./server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "pug": "^2.0.4",
+    "typescript": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/jquery": "^3.3.31",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lndrschlz/fullstack-coding-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lndrschlz/fullstack-coding-challenge/issues"
+  },
+  "homepage": "https://github.com/lndrschlz/fullstack-coding-challenge#readme"
+}
