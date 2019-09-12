@@ -1,0 +1,11 @@
+html
+  head
+    script(src="https://code.jquery.com/jquery-3.4.1.min.js")
+    script(type="text/javascript")
+      include script.js 
+  body(onload="startup()")
+    input(type="button",id="createObject",value="Create Object",onclick="createObject()")
+    input(type="button",id="listObjects",value="List Objects",onclick="listObjects()")
+    input(type="button",id="deleteObjects",value="Delete Objects",onclick="deleteObjects()")
+    br
+    textarea(id="logs",style="width: 500px; height: 600px;",align="bottom",readonly)
