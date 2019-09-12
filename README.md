@@ -1,8 +1,8 @@
-# uptain Fullstack Coding Challenge
+# uptain fullstack coding challenge solution
 
 ## Introduction
 
-Tiny Node.js webapp demonstrating client-server-architecture to create, list and delete objects on the server. Data will be persisted in the initialized objects.json database file.
+Minimalistic node.js webapp demonstrating client-server-architecture to create, list and delete objects on the server. Data will be persisted in the initialized objects.json database file.
 
 Tech-stack: Node.js + Express + PUG + TypeScript
 
@@ -12,9 +12,18 @@ Tech-stack: Node.js + Express + PUG + TypeScript
 npm install && npm run build && npm start
 ```
 
+## Deployment
+
+As of september 2019, this example is deployed on [google app engine](https://uptain-coding-challenge.appspot.com/). You can deploy the application on your own app engine instance using:
+
+```
+gcloud app deploy
+```
+
+Note: there are known issues on the deployed app engine version regarding permissions. This issue is currently not planned to fix due to project capacities.
 
 
-
+## uptain Fullstack Coding Challenge
 
 Seems like you're trying out for a position at
 [Uptain](https://uptain.de) or you've found this and would like to
