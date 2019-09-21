@@ -1,0 +1,48 @@
+service: books
+
+plugins:
+  - serverless-dynamodb-local
+  - serverless-offline
+
+custom:
+  dynamodb:
+    start:
+      migrate: true
+    stages:
+      - dev
+  tableNames:
+    books: "books"
+  endpoints:
+    dynamodb-url: "http://localhost:8000"
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  environment:
+    CONFIG_DYNAMODB_ENDPOINT: ${self:custom.endpoints.dynamodb-url}
+    CONFIG_BOOKS_TABLE: ${self:service}-${opt:stage, self:provider.stage}-${self:custom.tableNames.books}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Scan
+        - dynamodb:PutItem
+      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.CONFIG_BOOKS_TABLE}"
+
+functions:
+  create:
+    handler: books/create.create
+    events:
+      - http:
+          path: books
+          method: post
+          cors: true
+  list:
+    handler: books/list.list
+    events:
+      - http:
+          path: books
+          method: get
+          cors: true
+
+resources:
+  - ${file(resources/books-table.yml)}

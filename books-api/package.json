@@ -1,0 +1,16 @@
+{
+  "name": "books-api",
+  "version": "1.0.0",
+  "description": "Offline Serverless REST API.",
+  "author": "Rafik BELAS <rafik.belas@hotmail.fr>",
+  "license": "ISC",
+  "devDependencies": {
+    "aws-sdk": "^2.532.0",
+    "serverless-dynamodb-local": "^0.2.38",
+    "serverless-offline": "^5.11.0"
+  },
+  "dependencies": {
+    "joi": "^14.3.1",
+    "uuid": "^3.3.3"
+  }
+}
