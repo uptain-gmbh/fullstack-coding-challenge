@@ -1,0 +1,28 @@
+{
+  "name": "serverless",
+  "version": "1.0.0",
+  "description": "Fullstack serverless app",
+  "main": "index.js",
+  "scripts": {
+    "server": "netlify-lambda serve backend",
+    "build": "netlify-lambda build backend",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Farrukh",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^5.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^0.20.0",
+    "mongoose": "^5.7.7",
+    "netlify-lambda": "^1.6.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4",
+    "webpack": "^4.41.2"
+  }
+}
