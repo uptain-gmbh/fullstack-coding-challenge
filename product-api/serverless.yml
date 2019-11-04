@@ -1,0 +1,52 @@
+service: product-api
+
+custom:
+  settings:
+    PRODUCT_TABLE: products
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  environment: ${self:custom.settings}
+  region: eu-central-1
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:
+        - "arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.settings.PRODUCT_TABLE}"
+
+functions:
+  createProduct:
+    handler: dist/handler.createProduct
+    events:
+    - http:
+        path: /products
+        method: post
+  getAllProducts:
+    handler: dist/handler.getAllProducts
+    events:
+    - http:
+        path: /products
+        method: get
+
+resources:
+  Resources:
+    ProductTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+        - AttributeName: "id"
+          AttributeType: "S"
+        KeySchema:
+        - AttributeName: "id"
+          KeyType: "HASH"
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:custom.settings.PRODUCT_TABLE}
