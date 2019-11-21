@@ -54,12 +54,10 @@ const renderField = ({
 
   let SignupForm = props => {
     const { handleSubmit } = props
-    let   submit = values => {
-        // print the form values to the console
-        console.log(values)
-      }
+
     return (
         <div className='container'>
+          <h3>SignUp form</h3>
             <form onSubmit={handleSubmit}>
                  <div className = 'input-field'>
                     <Field name="firstName" component={renderField} type="text" label="First Name" />
