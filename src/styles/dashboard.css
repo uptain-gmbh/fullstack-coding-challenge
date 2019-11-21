@@ -1,0 +1,12 @@
+.dashboard{
+    position: fixed;
+    width: 100%;
+    background:grey;
+    color: aliceblue;
+    display: flex;
+    top: 0;
+    text-transform: capitalize;
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+}
