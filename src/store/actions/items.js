@@ -1,5 +1,4 @@
 
-import firebase from "firebase"
 import db from '../../firebase/config'
 import { loaded, addError, removeError, loading, addItem, getItems } from './actionCreators'
 export const addItems = (item, user) => (dispatch) => {

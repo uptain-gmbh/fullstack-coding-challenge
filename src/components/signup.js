@@ -1,6 +1,4 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { ToastContainer, toast } from "react-toastify";
+import React from 'react'
 import "react-toastify/dist/ReactToastify.css";
 import { reduxForm, Field } from 'redux-form'
 

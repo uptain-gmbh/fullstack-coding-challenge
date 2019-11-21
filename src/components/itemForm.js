@@ -1,7 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { reduxForm, Field } from 'redux-form'
 const validate = values => {
   const errors = {}
@@ -33,10 +30,7 @@ const renderField = ({
   )
 let ItemForm = (props) => {
   const { handleSubmit } = props
-  let submit = values => {
-    // print the form values to the console
-    console.log(values)
-  }
+ 
   return (
     <div className='container'>
       <form onSubmit={handleSubmit}>
