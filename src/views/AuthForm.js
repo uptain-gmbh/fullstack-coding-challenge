@@ -46,6 +46,8 @@ class Authentication extends Component {
     }
     render() {
         console.log('ptops', this.props.errors.error.message)
+        let signinPrompt = <h5>Have an account? <a onClick={this.changeRequiredAction}>SignIn</a></h5>
+        let signupPrompt = <h5>New Here? <a onClick={this.changeRequiredAction}>Signup</a></h5>
         return (
             <div className='container'>
                 <ToastContainer />
@@ -56,7 +58,8 @@ class Authentication extends Component {
                 {this.state.signin ? <Signin onSubmit={this.signin} /> : <Signup onSubmit={this.signup} />}
 
                 <div className='container padded'>
-                    <button type="submit" onClick={this.changeRequiredAction}>{this.state.signin ? 'Signup' : 'Signin'}</button>
+
+                   {this.state.signin ? signupPrompt : signinPrompt}
                 </div>
 
             </div>
