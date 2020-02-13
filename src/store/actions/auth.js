@@ -7,6 +7,8 @@ export const signup = (email,password,firstName,lastName) => (dispatch) => {
     let newUser = {
         email,password,firstName,lastName
     }
+    
+    //firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).createUserWithEmailAndPassword(email, password)
     return firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(cred =>{
             let ref =db.collection('users').doc(cred.user.uid)
@@ -25,6 +27,7 @@ export const signup = (email,password,firstName,lastName) => (dispatch) => {
 export const signin = (email,password) => (dispatch) => {
     dispatch({type:removeError})
     dispatch({type:loading})
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
     return firebase.auth().signInWithEmailAndPassword(email, password)
     .then(cred =>{
         let user = firebase.auth().currentUser

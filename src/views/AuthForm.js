@@ -18,7 +18,6 @@ class Authentication extends Component {
     componentDidUpdate() {
         if (this.props.user.user) {
             this.props.history.push("/home")
-            console.log(this.props.user.user)
         }
     }
     signup = (values) => {
@@ -41,13 +40,9 @@ class Authentication extends Component {
             )
     }
     changeRequiredAction = (e) => {
-        console.log('signin state', this)
         this.setState({ signin: !this.state.signin })
     }
     render() {
-        console.log('ptops', this.props.errors.error.message)
-        let signinPrompt = <h5>Have an account? <a onClick={this.changeRequiredAction}>SignIn</a></h5>
-        let signupPrompt = <h5>New Here? <a onClick={this.changeRequiredAction}>Signup</a></h5>
         return (
             <div className='container'>
                 <ToastContainer />
@@ -58,8 +53,7 @@ class Authentication extends Component {
                 {this.state.signin ? <Signin onSubmit={this.signin} /> : <Signup onSubmit={this.signup} />}
 
                 <div className='container padded'>
-
-                   {this.state.signin ? signupPrompt : signinPrompt}
+                    <button type="submit" onClick={this.changeRequiredAction}>{this.state.signin ? 'Signup' : 'Signin'}</button>
                 </div>
 
             </div>

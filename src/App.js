@@ -1,5 +1,6 @@
 import React from 'react';
-import {BrowserRouter, Route} from 'react-router-dom'
+import logo from './logo.svg';
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import HomePage from './views/HomePage'
 import AuthForm from './views/AuthForm'
 import './App.css';
