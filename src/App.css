@@ -1,0 +1,68 @@
+
+body{
+  background-color: black ; 
+}
+
+.wrapper{
+ text-align: center;
+ margin: 30px 0px;
+ color: rgb(17, 217, 88); 
+}
+
+h1{
+ font-size: 40px;
+ padding: 5px;
+ /* border: rgb(17, 217, 88) 1px solid; */
+}
+
+label{
+ font-size: 20px;
+}
+
+label input{
+ width: 200px;
+ height: 20px;
+ font-size: 20px;
+}
+
+.add{
+ padding: 5px 20px;
+ margin-left: 15px;
+ font-size: 16px;
+ background-color: rgb(17, 217, 88);
+ color: black;
+ border-radius: 5px;
+}
+
+
+.add:hover{
+ background-color: black;
+ color: rgb(17, 217, 88);
+}
+
+button{
+ margin-top: 50px;
+ margin-bottom: 30px;
+ padding: 5px 20px;
+ font-size: 20px;
+ background-color: rgb(17, 217, 88);
+ color: black;
+ border-radius: 5px;
+}
+
+button:hover{
+ background-color: black;
+ color: rgb(17, 217, 88);
+}
+
+table{
+ border: rgb(17, 217, 88) solid 1px;
+ font-size: 20px;
+ padding: 3px;
+ margin: 0px auto;
+ width: 400px;
+}
+
+table th{
+ border: rgb(17, 217, 88) solid 1px;
+}

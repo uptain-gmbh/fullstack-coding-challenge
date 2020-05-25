@@ -1,43 +1,76 @@
-# uptain Fullstack Coding Challenge
+# Serverless-application
+This codebase has been created to set up a full serverless application stack, where users will be able to add items to a list and view this list.
+![picture](public/app.png)
 
-Seems like you're trying out for a position at
-[Uptain](https://uptain.de) or you've found this and would like to
-apply.  Fork this repo and go at it ;)
+# Brief Overview ###
+User can create an item object and view all items. 
 
-Your goal is to set up a full serverless application stack, where users will be able to add items to a list and view this list. Once you are done with the challenge, please fire up a
-Pull Request and we will get in touch.
+- View all the created items stored in backend
+- Add a new item
 
-## Brief
+Developed Application is already deployed in AWS Platform with my credentials, you can access lambda functions to add new item and to get all items from below URL:
 
-I am a user of the app and I want to create an item object and view
-previously provided items. The form should can be simple but should enable me to:
+To Add New item: `https://26ggy7h8p5.execute-api.eu-central-1.amazonaws.com/dev/addItems`
 
-1.  View all the items stored in backend
-2.  Add a new item
+To get all items: `https://26ggy7h8p5.execute-api.eu-central-1.amazonaws.com/dev/getItems`
+
+### Technology Stack ###
+Serverless-Backend: NodeJS, AWS Lambda, DynamoDB
+Frontend: HTML, CSS, ReactJS
+
+For more information on how this works with other frontends/backends, clone this repo and follow instructions.
+
+### Getting Started ###
+These instructions will get you a copy of the project up and running on your local machine.
+
+### Prerequisites ###
+Nodejs
+
+AWS
+
+Serverless
 
 
-## Technologie selection
+### Development Setup ###
+Explain how to install all development dependencies.
 
-It is up to you to select your stack. We provide two options below. Feel free to select that one that enables you to complete the challenge in time.
+`git clone https://github.com/himanshunagda/serverless-application`
 
-## Requirements
-
-*   You can use whatever libraries, task runners, databases and build processes you
-    like. The tools named in the options are the only requirements. You can write in JavaScript, but TypeScript is encouraged (no CoffeeScript, etc). 
-
+ `cd serverless-application`
+ 
+ `npm i`
 
 
-*   Setup a [serverless](https://serverless.com/) application. A minimum a backend and a frontend is required. 
-    For the frontend part you should use [React](https://reactjs.org/) and for the you can select from services of the [AWS Cloud](https://aws.amazon.com) for storing items and handling requests. The frontend file can be hosted locally, so you dont need to upload to anywhere.
-    
+### Install Dependencies ###
+1) Install serverless:
 
-### Suggested order of completion
+`npm install -g serverless`
 
-This depends on how much time you were given to accomplish the task.
-Ideally you would provide a solution for each of the outlined steps
-unless they are marked as optional.
 
-1.  Building the Backend.
-2.  Form for listing and adding items
-3.  (optional) if using a database, orchestrate services with Docker or some differnt technologie.
+ ### Start the Development server ###
+ `npm start`
+ 
+ It starts project on http://localhost:3000/
+ 
+ ### Basic Steps ###
+ - Once development server is running, an UI can be accessed on URL http://localhost:3000/
+ - Add new items.
+ - Get all items.
+ 
+Note: If you want to deploy serverless application in your AWS platform, follow these instructions below:
 
+  1) Setup IAM user at https://aws.amazon.com/ to get AWS access ID and secret key.
+
+  2) Configure your ACCESS_ID and Secret key to serverless with the command:
+
+     `serverless config credentials --provider aws --key YOU_ACCESS_KEY --secret YOUR_SECRET_KEY `
+
+  3) Navigate to serverless-application/backend and run these command to deploy: `serverless deploy` or `sls deploy`
+
+  4) Once application is deployed, we get 2 endpoints POST and GET.
+
+  5) Update the variables post_url and get_url in serverless-application/src/App.js with POST and GET Url we got before.
+
+  6) Navigate to serverless-application and run `npm start`.
+
+  7) Access your user interface on http://localhost:3000/

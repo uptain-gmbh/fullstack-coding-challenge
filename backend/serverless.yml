@@ -1,0 +1,51 @@
+service: sls
+
+custom:
+  settings:
+    POSTS_TABLE: items
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: eu-central-1
+  environment: ${self:custom.settings}
+  iamRoleStatements:
+   - Effect: "Allow"
+     Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+     Resource:
+      - "arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.settings.POSTS_TABLE}"
+
+functions:
+  addNewItems:
+    handler: handler.addNewItems
+    events:
+    - http:
+        path: /addItems
+        method: post
+        cors: true
+  getAllItems:
+    handler: handler.getAllItems
+    events:
+    - http:
+        path: /getItems
+        method: get
+        cors: true
+resources:
+  Resources:
+    PostsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+        - AttributeName: "id"
+          AttributeType: "S"
+        KeySchema:
+        - AttributeName: "id"
+          KeyType: "HASH"
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:custom.settings.POSTS_TABLE}
