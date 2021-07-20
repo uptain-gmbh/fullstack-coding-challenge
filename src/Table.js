@@ -13,30 +13,30 @@ const TableHeader = () => {
 }
 
 const TableBody = (props) => {
-    const rows = props.itemsData.map((row, index) => {
-      return (
-        <tr key={index}>
+  const rows = props.itemsData.map((row, index) => {
+    return (
+      <tr key={index}>
         <td>{row.itemId}</td>
         <td>{row.name}</td>
         <td>
-            <button onClick={() => props.removeItem(row.itemId)}>Delete</button>
+          <button onClick={() => props.removeItem(row.itemId)}>Delete</button>
         </td>
-        </tr>
-      )
-    })
-  
-    return <tbody>{rows}</tbody>
-  }
+      </tr>
+    )
+  })
+
+  return <tbody>{rows}</tbody>
+}
 
 const Table = (props) => {
-    const {itemsData, removeItem} = props
-  
-    return (
-      <table>
-        <TableHeader />
-        <TableBody itemsData={itemsData} removeItem={removeItem} />
-      </table>
-    )
+  const { itemsData, removeItem } = props
+
+  return (
+    <table>
+      <TableHeader />
+      <TableBody itemsData={itemsData} removeItem={removeItem} />
+    </table>
+  )
 }
 
 export default Table

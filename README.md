@@ -41,3 +41,14 @@ unless they are marked as optional.
 2.  Form for listing and adding items
 3.  (optional) if using a database, orchestrate services with Docker or some differnt technologie.
 
+## USAGE
+
+The backend (File: handler.js) is hosted on AWS. The YML File defines a DynamoDB at AWS. This solution does not use an offline DB, therefore the optional point 3 (see above) is not fulfilled.
+
+React components can be found in the src folder. The command 'npm start' starts the local server to test the serverless application.
+
+You can enter two fields (id and name) an save it in the DB. A click on the delete button removes the item from the DB.
+
+
+
+
