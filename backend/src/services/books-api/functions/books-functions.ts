@@ -22,6 +22,10 @@ export async function list(event: APIGatewayEvent, context: Context): Promise<AP
 
         return {
             statusCode: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': true,
+            },
             body: JSON.stringify({
                 items: books
             }),
@@ -46,6 +50,10 @@ export async function deleteBook(event: APIGatewayEvent, context: Context): Prom
 
         return {
             statusCode: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': true,
+            },
             body: null
         };
     });
@@ -69,6 +77,10 @@ export async function create(event: APIGatewayEvent, context: Context): Promise<
 
          return {
              statusCode: 200,
+             headers: {
+                 'Access-Control-Allow-Origin': '*',
+                 'Access-Control-Allow-Credentials': true,
+             },
              body: JSON.stringify({
                  items: book
              }),

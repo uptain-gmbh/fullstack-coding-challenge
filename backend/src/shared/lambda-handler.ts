@@ -23,23 +23,33 @@ export const tryExecute = async (func: ExecutionFunc) => {
             // ideally we should use here an instanceof way of switch,
             // but it's just a manned of style as for me.
 
+            const headers = {
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Credentials': true,
+                }
+            };
+
             const name = error?.constructor?.name;
             switch(name) {
                 case ValidationError.prototype.constructor.name:
                     const validationError = error as ValidationError;
                     return {
+                        ...headers,
                         statusCode: 400,
                         body: validationError.validations ? JSON.stringify({ error: validationError.validations }) : null
                     };
                 case NotFoundError.prototype.constructor.name:
                     const notFoundError = error as NotFoundError;
                     return {
+                        ...headers,
                         statusCode: 404,
                         body: JSON.stringify({ error: notFoundError.message })
                     };
                 case ConflictError.prototype.constructor.name:
                     const conflictError = error as ConflictError;
                     return {
+                        ...headers,
                         statusCode: 409,
                         body: JSON.stringify({ error: conflictError.message })
                     };
@@ -49,6 +59,7 @@ export const tryExecute = async (func: ExecutionFunc) => {
             debug('Exception was not handled');
 
             return {
+                ...headers,
                 statusCode: 500,
                 body: JSON.stringify({ error: true, details: "Internal exception occurred."})
             };

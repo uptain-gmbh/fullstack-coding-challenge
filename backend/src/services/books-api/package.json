@@ -6,8 +6,9 @@
   "license": "ISC",
   "scripts": {
     "dev:dynamodb": "docker-compose up -d",
-    "dev:dynamoview": "cross-env DYNAMO_ENDPOINT=http://localhost:8000 npx dynamodb-admin",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "dev:dynamodbview": "cross-env DYNAMO_ENDPOINT=http://localhost:8000 npx dynamodb-admin",
+    "start": "serverless offline",
+    "deploy:dev": "sls deploy --stage dev --region eu-central-1"
   },
   "dependencies": {
     "@uptain/core": "workspace:^",
