@@ -1,0 +1,85 @@
+service: books-api
+
+plugins:
+  - serverless-bundle
+  - serverless-dotenv-plugin # Load .env as environment variables
+  - serverless-offline
+
+package:
+  individually: true
+
+# required to use shared configuration on top level of project
+projectDir: ../../../
+custom: ${file(../../../serverless.common.yml):custom}
+
+provider:
+  lambdaHashingVersion: 20201221
+  name: ${file(../../../serverless.common.yml):custom.provider.name}
+  stage: ${file(../../../serverless.common.yml):custom.provider.stage}
+  region: ${file(../../../serverless.common.yml):custom.provider.region}
+  runtime: nodejs14.x
+  tracing:
+    apiGateway: true
+    lambda: true
+  # These environment variables are made available to our functions under process.env.
+  environment:
+    stage: ${self:custom.stage}
+    DEBUG: "*"
+    TRACE_DYNAMODB: true # Enable to see the queries
+    BOOKS_TABLE: !ImportValue ${self:custom.sstApp}-dynamodb-books-table-name # Imported from SST
+    # Ideally BOOKS_TABLE should have a fallback here for local usage, but it will take a lot of time to make it with CF template
+    # So local check is placed directly in code
+  iamRoleStatements:
+    # - ${file(../../../serverless.common.yml):lambdaPolicyXRay} # enable aws x-ray to trace requests
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:
+        - !ImportValue ${self:custom.sstApp}-dynamodb-books-table-arn
+
+functions:
+  create:
+    handler: functions/books-functions.create
+    events:
+      - http:
+          path: books
+          method: POST
+          cors: true
+  list:
+    handler: functions/books-functions.list
+    events:
+      - http:
+          path: books
+          method: GET
+          cors: true
+  delete:
+    handler: functions/books-functions.deleteBook
+    events:
+      - http:
+          path: books/{id}
+          method: DELETE
+          cors: true
+
+resources:
+  # API Gateway Errors
+  - ${file(resources/api-gateway-errors.yml)}
+  - Outputs:
+      ApiGatewayRestApiId:
+        Value:
+          Ref: ApiGatewayRestApi
+        Export:
+          Name: ${self:custom.stage}-BooksApiGatewayRestApiId
+
+      ApiGatewayRestApiRootResourceId:
+        Value:
+          Fn::GetAtt:
+            - ApiGatewayRestApi
+            - RootResourceId
+        Export:
+          Name: ${self:custom.stage}-BooksApiGatewayRestApiRootResourceId

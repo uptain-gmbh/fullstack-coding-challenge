@@ -1,0 +1,35 @@
+custom:
+  # Our stage is based on what is passed in when running serverless commands. Or falls back to dev stage.
+  stage: ${opt:stage, self:provider.stage}
+
+  # default provider configuration
+  provider:
+    name: aws
+    stage: ${env:APP_STAGE, "dev"}
+    region: ${env:APP_REGION, "eu-central-1"}
+
+  # Here we have a mapping of environment for CDK (to be same as Serverless) via SST Framework
+  sstAppMapping:
+    prod: prod
+    dev: dev
+
+  # Here we are storing a reference to SST app.
+  # "-infrastrucutre" is a just a hardcoded postfix, must be same as in infrastructure/sst.json
+  # "self:custom.sstAppMapping.${self:custom.stage}" is a self-reference resolve of sstAppMapping property, which will try to resolve the CDK app by stage mapping
+  # "self:custom.sstAppMapping.dev" is a fallback of mapping,
+  # this will use default dev stage mapping. We could have a hardcoded string here also.
+  # This option is useful while deploying the feature branches, so the API Gateway & Lambda's will reuse dev stack resources.
+  sstApp: ${self:custom.sstAppMapping.${self:custom.stage}, self:custom.sstAppMapping.dev}-infrastructure
+
+  # use docker for sls offline
+  serverless-offline:
+    useDocker: false
+
+# shared policy for accessing AWS x-ray, not used in project, just shown as an example here.
+# to make it work x-ray should wrap all aws-related imports
+lambdaPolicyXRay:
+  Effect: Allow
+  Action:
+    - xray:PutTraceSegments
+    - xray:PutTelemetryRecords
+  Resource: "*"
