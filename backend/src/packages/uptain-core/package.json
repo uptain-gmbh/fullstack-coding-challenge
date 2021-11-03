@@ -1,0 +1,10 @@
+{
+  "name": "@uptain/core",
+  "main": "src/index.ts",
+  "version": "0.0.1",
+  "private": true,
+  "license": "ISC",
+  "dependencies": {
+    "class-validator": "^0.13.1"
+  }
+}

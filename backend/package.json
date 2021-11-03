@@ -1,0 +1,13 @@
+{
+  "name": "@uptain/root",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "infrastructure",
+    "src/packages/*",
+    "src/services/*"
+  ],
+  "packageManager": "yarn@3.1.0"
+}

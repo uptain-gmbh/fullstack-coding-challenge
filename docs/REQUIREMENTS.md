@@ -13,5 +13,4 @@ The technical stack decisions and listing.
 - Utilize TypeScript language. TypeScript everywhere.
 - Backend deployment based on Serverless
 - Store the data in Aurora Serverless (MySQL)
-- Backend with Unit Tests (Jest)
 - Frontend based on ReactJS

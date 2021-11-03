@@ -1,0 +1,32 @@
+{
+  "name": "@uptain/books-api",
+  "version": "0.0.1",
+  "description": "Books API",
+  "private": true,
+  "license": "ISC",
+  "scripts": {
+    "dev:dynamodb": "docker-compose up -d",
+    "dev:dynamoview": "cross-env DYNAMO_ENDPOINT=http://localhost:8000 npx dynamodb-admin",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "@uptain/core": "workspace:^",
+    "aws-lambda": "^1.0.6",
+    "aws-xray-sdk": "^3.3.3",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
+    "debug": "^4.3.2",
+    "dynamoose": "^2.8.2",
+    "reflect-metadata": "^0.1.13",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.85",
+    "@types/debug": "^4.1.7",
+    "cross-env": "^7.0.3",
+    "dynamodb-admin": "^4.1.0",
+    "serverless-bundle": "^5.0.2",
+    "serverless-dotenv-plugin": "^3.10.0",
+    "serverless-offline": "^8.2.0"
+  }
+}

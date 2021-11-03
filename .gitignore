@@ -1,0 +1,12 @@
+
+backend/.yarn/
+
+.idea/
+
+backend/src/services/books-api/.webpack/
+
+.DS_Store
+
+backend/infrastructure/cdk.context.json
+
+backend/src/services/books-api/.tmp/
