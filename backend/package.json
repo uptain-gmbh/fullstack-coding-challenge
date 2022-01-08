@@ -1,0 +1,23 @@
+{
+  "name": "uptain-challenge-api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "sls deploy"
+  },
+  "dependencies": {
+    "aws-lambda": "^1.0.7",
+    "uuid": "^3.4.0",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@types/aws-sdk": "^2.7.0",
+    "@types/yup": "^0.29.13",
+    "@types/aws-lambda": "^8.10.89",
+    "serverless-bundle": "^5.2.0",
+    "serverless-offline": "^8.3.1"
+  },
+  "engines": {
+    "node": "14.x"
+  }
+}

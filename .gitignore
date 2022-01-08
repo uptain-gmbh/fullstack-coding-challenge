@@ -1,7 +1,12 @@
 # Jetbrains IDEs
 .idea
 
+# node_modules
+/*/node_modules
+
 # infrastructure
 /infrastructure/.build
 /infrastructure/.sst
-/infrastructure/node_modules
+
+# backend
+/backend/.serverless
