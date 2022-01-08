@@ -16,10 +16,10 @@ class ApiService {
       const response = await this.axiosClient.post('/notes', JSON.stringify(input));
 
       return JSON.parse(response.data);
-    } catch(err) {
-     return {
-       success: false,
-     };
+    } catch (err) {
+      return {
+        success: false,
+      };
     }
   }
 
@@ -28,10 +28,10 @@ class ApiService {
       const response = await this.axiosClient.get('/notes');
 
       return JSON.parse(response.data);
-    } catch(err) {
+    } catch (err) {
       return {
         success: false,
-      }
+      };
     }
   }
 }

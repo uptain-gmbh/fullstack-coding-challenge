@@ -1,7 +1,7 @@
-import { Box, Button, TextField } from "@mui/material";
-import SendIcon from "@mui/icons-material/Send";
+import { Box, Button, TextField } from '@mui/material';
+import SendIcon from '@mui/icons-material/Send';
 import { ValidationError } from 'yup';
-import React from "react";
+import React from 'react';
 import { FormProps } from './interfaces';
 import { contentSchema } from './validationSchemas';
 
@@ -19,8 +19,8 @@ export const Form = (props: FormProps) => {
   const onClick = () => {
     try {
       contentSchema.validateSync(content);
-    } catch(err) {
-      if(err instanceof ValidationError) {
+    } catch (err) {
+      if (err instanceof ValidationError) {
         setError(err.message);
 
         return;
@@ -29,13 +29,13 @@ export const Form = (props: FormProps) => {
 
     onSubmit(content);
 
-    setContent('')
+    setContent('');
   };
 
   const showButton = !!content.trim().length;
 
   return (
-    <Box sx={{padding: '20px', color: 'white', flexDirection: 'column', alignItems: 'flex-end', display: 'flex'}}>
+    <Box sx={{ padding: '20px', color: 'white', flexDirection: 'column', alignItems: 'flex-end', display: 'flex' }}>
       <TextField
         id="standard-multiline-flexible"
         label="Take a note..."
@@ -48,14 +48,14 @@ export const Form = (props: FormProps) => {
         helperText={validationError}
         sx={{
           width: '100%',
-            marginBottom: '10px'
+          marginBottom: '10px',
         }}
       />
-      {showButton &&
-          <Button variant="contained" endIcon={<SendIcon />} onClick={onClick}>
-            Save
-          </Button>
-      }
+      {showButton && (
+        <Button variant="contained" endIcon={<SendIcon />} onClick={onClick}>
+          Save
+        </Button>
+      )}
     </Box>
-  )
-}
+  );
+};

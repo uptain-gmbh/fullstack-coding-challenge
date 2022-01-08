@@ -1,5 +1,5 @@
-import { Alert, Grid, SnackbarCloseReason } from "@mui/material";
-import React, { SyntheticEvent, useEffect } from "react";
+import { Alert, Grid, SnackbarCloseReason } from '@mui/material';
+import React, { SyntheticEvent, useEffect } from 'react';
 import { Form } from '../../components/form';
 import { List } from '../../components/list';
 import { apiService } from '../../api/api.service';
@@ -11,10 +11,10 @@ export const MainPage = () => {
 
   const onFormSubmit = async (formContent: string): Promise<void> => {
     const res = await apiService.createNote({
-      content: formContent
+      content: formContent,
     });
 
-    if(!res.success) {
+    if (!res.success) {
       setError('Server error.');
 
       return;
@@ -26,7 +26,7 @@ export const MainPage = () => {
   const refreshNotes = async () => {
     const res = await apiService.getNotesList();
 
-    if(!res.success) {
+    if (!res.success) {
       setError('Server error.');
 
       return;
@@ -35,7 +35,7 @@ export const MainPage = () => {
     const content = res.data?.map((note) => note.content) || [];
 
     setNotes(content);
-  }
+  };
 
   const handleClose = (event?: Event | SyntheticEvent<unknown, Event>, reason?: SnackbarCloseReason) => {
     if (reason === 'clickaway') {
@@ -46,7 +46,7 @@ export const MainPage = () => {
   };
 
   useEffect(() => {
-    refreshNotes()
+    refreshNotes();
   }, []);
 
   return (
@@ -56,14 +56,24 @@ export const MainPage = () => {
           {error}
         </Alert>
       </Snackbar>
-      <Grid container sx={{ padding: '20px', height: '100vh', alignItems: 'stretch', justifyContent: 'space-around', maxWidth: '1024px', margin: '0 auto' }}>
-        <Grid item xs={4} sm={3} sx={{ maxHeight: '20%'}}>
-          <Form onSubmit={onFormSubmit}/>
+      <Grid
+        container
+        sx={{
+          padding: '20px',
+          height: '100vh',
+          alignItems: 'stretch',
+          justifyContent: 'space-around',
+          maxWidth: '1024px',
+          margin: '0 auto',
+        }}
+      >
+        <Grid item xs={4} sm={3} sx={{ maxHeight: '20%' }}>
+          <Form onSubmit={onFormSubmit} />
         </Grid>
         <Grid item xs={8} sm={7}>
-          <List items={notes}/>
+          <List items={notes} />
         </Grid>
       </Grid>
     </>
   );
-}
+};
