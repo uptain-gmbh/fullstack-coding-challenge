@@ -6,15 +6,17 @@ Consists of endpoints:
 - POST /notes - creates a note with provided content
 - GET /notes - returns a list of all previously created notes stored in DynamoDB
 
-# Requirements
+## Requirements
 
 - NodeJS v14.x
 - Serverless framework installed
 
-# Commands
+## Commands
 
 ### `npm run deploy`
 
 Builds your app and deploys it to AWS.
 
 Generates CloudFormation templates in `.serverless` folder.
+
+As a result of successful deployment, you can see the API endpoint in the terminal.
