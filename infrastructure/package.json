@@ -1,0 +1,24 @@
+{
+  "name": "uptain-challenge-infrastructure",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "sst build",
+    "deploy": "sst deploy --stage dev",
+    "remove": "sst remove --stage dev"
+  },
+  "eslintConfig": {
+    "extends": ["serverless-stack"]
+  },
+  "devDependencies": {
+    "@tsconfig/node14": "^1.0.1",
+    "@aws-cdk/assert": "1.138.0",
+    "@types/aws-lambda": "^8.10.70",
+    "@types/node": "<15.0.0"
+  },
+  "dependencies": {
+    "@serverless-stack/cli": "0.57.2",
+    "@serverless-stack/resources": "0.57.2",
+    "@aws-cdk/core": "1.138.0"
+  }
+}

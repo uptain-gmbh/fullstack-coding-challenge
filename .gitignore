@@ -1,0 +1,7 @@
+# Jetbrains IDEs
+.idea
+
+# infrastructure
+/infrastructure/.build
+/infrastructure/.sst
+/infrastructure/node_modules
