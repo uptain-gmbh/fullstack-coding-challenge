@@ -1,0 +1,21 @@
+
+
+
+
+ ---------------------------		----------------------			----------------------
+|			    |		|		      |			|		      |
+|			    |		|		      |			|		      |
+|			    |		|		      |			|     AWS - DynamoDB  |
+|	REACT APP	    |---------->|     AWS - NodeJs    |--------------->	|     journalentries  |	
+|	journal-app	    |		|        Lambda	      |			|		      |	
+|			    |		|	myjournal     |			|		      |
+|			    |		|		      |			|		      |
+ ---------------------------		----------------------			-----------------------
+
+"journal-app" deployed on Heroku for demo.
+URL: https://ash-journal-react.herokuapp.com/
+
+Source code separation:
+
+Backend - AWS Lambda Node.js - "myjournal"
+Frontend - React - "journal-app"
