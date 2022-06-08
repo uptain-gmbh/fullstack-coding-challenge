@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "aws-sdk": "^2.1148.0",
+    "uuid": "^8.0.0"
+  },
+  "name": "myjournal",
+  "version": "1.0.0",
+  "description": "Journal Application to write entries and view them all.",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ashwin Sridhar",
+  "license": "ISC"
+}

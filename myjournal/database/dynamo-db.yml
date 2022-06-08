@@ -1,0 +1,23 @@
+Resources:
+  journalDB:
+    Type: AWS::DynamoDB::Table
+
+    Properties:
+      AttributeDefinitions:
+         - 
+          AttributeName: "id"
+          AttributeType: "S"
+         - 
+          AttributeName: "mood"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "id"  
+          KeyType: "HASH"
+        - AttributeName: "mood" 
+          KeyType: "RANGE"
+
+      TableName: "JournalData"     
+
+      ProvisionedThroughput:  
+        ReadCapacityUnits: 10
+        WriteCapacityUnits: 10

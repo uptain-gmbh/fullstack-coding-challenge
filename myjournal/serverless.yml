@@ -1,0 +1,34 @@
+service: myjournal
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "dynamodb:*"
+      Resource: "*"
+
+
+functions:
+  write:
+    handler: api/journal.write
+    memorySize: 128
+    events:
+      - http: 
+          path: journal
+          method: post
+          cors: true
+  getEntries:
+    handler: api/journal.getAll
+    memorySize: 128
+    events:
+      - http:
+          path: journal
+          method: get
+          cors: true
+
+resources: ${file(database/dynamo-db.yml)}
+

@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "type": "aws-sam",
+            "request": "direct-invoke",
+            "name": "myjournal:api/journal.write (nodejs14.x)",
+            "invokeTarget": {
+                "target": "code",
+                "projectRoot": "${workspaceFolder}/",
+                "lambdaHandler": "api/journal.write"
+            },
+            "lambda": {
+                "runtime": "nodejs14.x",
+                "payload": {},
+                "environmentVariables": {}
+            }
+        }
+    ]
+}
