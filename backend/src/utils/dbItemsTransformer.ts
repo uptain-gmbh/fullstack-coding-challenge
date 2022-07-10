@@ -6,7 +6,10 @@ export const transformDBItem = (
   return Object.entries(item).reduce<Record<string, string | number>>(
     (prev, [key, value]) => ({
       ...prev,
-      [key]: Object.values(value).pop() as string,
+      [key]:
+        key === "ingredients"
+          ? JSON.parse(Object.values(value).shift())
+          : (Object.values(value).shift() as string),
     }),
     {}
   );

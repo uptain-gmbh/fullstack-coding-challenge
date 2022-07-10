@@ -42,7 +42,7 @@ class GroceryRepository {
 
     const item = {
       id: { S: id },
-      ingredients: { S: model.ingredients },
+      ingredients: { S: JSON.stringify(model.ingredients) },
       name: { S: model.name },
       weight: { N: model.weight.toString() },
     };
@@ -59,7 +59,7 @@ class GroceryRepository {
   async updateItem(model: GroceryModel) {
     const item = {
       id: { S: model.id },
-      ingredients: { S: model.ingredients },
+      ingredients: { S: JSON.stringify(model.ingredients) },
       name: { S: model.name },
       weight: { N: model.weight.toString() },
     };

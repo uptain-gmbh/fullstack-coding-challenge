@@ -35,45 +35,50 @@ functions:
     memorySize: 128
     description: Handler for returning groceries list
     events:
-      - httpApi:
+      - http:
           path: /groceries
           method: get
+          cors: true
 
   getGrocery:
     handler: src/handlers/getGrocery.getGrocery
     memorySize: 128
     description: Handler for returning specific grocery by id
     events:
-      - httpApi:
+      - http:
           path: /groceries/{id}
           method: get
+          cors: true
 
   createGrocery:
     handler: src/handlers/createGrocery.createGrocery
     memorySize: 128
     description: Handler for grocery creation
     events:
-      - httpApi:
+      - http:
           path: /groceries
           method: post
+          cors: true
 
   updateGrocery:
     handler: src/handlers/updateGrocery.updateGrocery
     memorySize: 128
     description: Handler for creating and updating grocery
     events:
-      - httpApi:
+      - http:
           path: /groceries
           method: put
+          cors: true
 
   deleteGroceries:
     handler: src/handlers/deleteGrocery.deleteGrocery
     memorySize: 128
     description: Handler for deleting grocery from groceries list
     events:
-      - httpApi:
+      - http:
           path: /groceries/{id}
           method: delete
+          cors: true
 
 resources:
   - ${file(./serverless-dynamodb.yml)}
