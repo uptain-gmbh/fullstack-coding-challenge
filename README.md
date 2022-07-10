@@ -24,4 +24,5 @@ previously provided groceries. The form should can be simple but should enable m
 
 Solution contains:
 
--[backend](backend/README.md) - the serverless application created with Node.js and serverless framework, AWS DynamoDB are used as storage -[frontend](frontend/README.md) - single page web application written with React.js and Redux
+-[backend](backend) - the serverless application created with Node.js and serverless framework, AWS DynamoDB are used as storage 
+-[frontend](frontend) - single page web application written with React.js and Redux

@@ -53,7 +53,7 @@ export const Card = ({
     onItemDelete(data?.id ?? "");
   }, [data?.id, onItemDelete]);
 
-  const buttonLabel = newGrocery ? "Add" : "Edit";
+  const buttonLabel = newGrocery ? "Add" : "Save";
 
   const addUpdateInProgress =
     addLoading === REQUEST_STATUS.PENDING ||
@@ -97,7 +97,7 @@ export const Card = ({
             label={buttonLabel}
             onClick={handleSubmit}
           />
-          <Button label="Cancel" onClick={resetForm} />
+          {!newGrocery && <Button label="Cancel" onClick={resetForm} />}
         </FooterStyles>
       )}
     </WrapperStyles>

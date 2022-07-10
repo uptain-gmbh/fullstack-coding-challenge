@@ -7,7 +7,8 @@ export const WrapperStyles = styled.div<StyledThemePropsType>`
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.light};
   flex: 1;
-  height: 100vh;
+  flex-grow: 1;
   width: 100%;
   flex-wrap: wrap;
+  min-height: 100vh;
 `;
