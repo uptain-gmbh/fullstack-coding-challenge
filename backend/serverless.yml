@@ -1,0 +1,79 @@
+service: grocery-api
+
+plugins:
+  - serverless-bundle
+  - serverless-offline
+
+frameworkVersion: "3"
+
+package:
+  exclude:
+    - node_modules/**
+    - venv/**
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: dev
+  region: eu-central-1
+  environment:
+    GROCERY_TABLE: ${self:service}-${self:provider.stage}
+    REGION: ${self:provider.region}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:DeleteItem
+      Resource:
+        - Fn::GetAtt: [GroceriesDynamoDBTable, Arn]
+
+functions:
+  getGroceries:
+    handler: src/handlers/getGroceries.getGroceries
+    memorySize: 128
+    description: Handler for returning groceries list
+    events:
+      - httpApi:
+          path: /groceries
+          method: get
+
+  getGrocery:
+    handler: src/handlers/getGrocery.getGrocery
+    memorySize: 128
+    description: Handler for returning specific grocery by id
+    events:
+      - httpApi:
+          path: /groceries/{id}
+          method: get
+
+  createGrocery:
+    handler: src/handlers/createGrocery.createGrocery
+    memorySize: 128
+    description: Handler for grocery creation
+    events:
+      - httpApi:
+          path: /groceries
+          method: post
+
+  updateGrocery:
+    handler: src/handlers/updateGrocery.updateGrocery
+    memorySize: 128
+    description: Handler for creating and updating grocery
+    events:
+      - httpApi:
+          path: /groceries
+          method: put
+
+  deleteGroceries:
+    handler: src/handlers/deleteGrocery.deleteGrocery
+    memorySize: 128
+    description: Handler for deleting grocery from groceries list
+    events:
+      - httpApi:
+          path: /groceries/{id}
+          method: delete
+
+resources:
+  - ${file(./serverless-dynamodb.yml)}
