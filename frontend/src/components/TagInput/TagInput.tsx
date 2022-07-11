@@ -4,7 +4,12 @@ import { IngredientModel } from "../../models";
 import { LabelStyles, WrapperStyles } from "./styled";
 import { TagInputProps } from "./types";
 
-export const TagInput: FC<TagInputProps> = ({ label, value, onChange }) => {
+export const TagInput: FC<TagInputProps> = ({
+  label,
+  value,
+  onChange,
+  error,
+}) => {
   const onAddHandler = useCallback(
     (tag: IngredientModel) => {
       onChange([...value, tag]);
@@ -32,7 +37,7 @@ export const TagInput: FC<TagInputProps> = ({ label, value, onChange }) => {
 
   return (
     <WrapperStyles>
-      <LabelStyles>{label}</LabelStyles>
+      <LabelStyles error={error}>{label}</LabelStyles>
       <ReactTags
         inline
         allowDragDrop

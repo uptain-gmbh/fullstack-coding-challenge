@@ -1,6 +1,7 @@
 const colors = {
   light: "#EFEFEF",
   dark: "#444444",
+  red: "#FF0000",
   shadowOut:
     "-6px -6px 14px rgba(255, 255, 255, .7), -6px -6px 10px rgba(255, 255, 255, .5), 6px 6px 8px rgba(255, 255, 255, .075), 6px 6px 10px rgba(0, 0, 0, .15)",
   shadowNormal:

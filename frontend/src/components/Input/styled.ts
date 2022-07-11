@@ -1,8 +1,12 @@
 import styled from "styled-components";
 import { StyledThemePropsType } from "../../config";
 
-interface StyleProps {
+interface InputProps {
   focused: boolean;
+}
+
+interface LabelProps {
+  error?: boolean;
 }
 
 export const WrapperStyles = styled.div<StyledThemePropsType>`
@@ -12,7 +16,7 @@ export const WrapperStyles = styled.div<StyledThemePropsType>`
   margin-bottom: 10px;
 `;
 
-export const InputStyles = styled.input<StyleProps & StyledThemePropsType>`
+export const InputStyles = styled.input<InputProps & StyledThemePropsType>`
   background-color: transparent;
   outline: none;
   border-radius: 15px;
@@ -24,8 +28,8 @@ export const InputStyles = styled.input<StyleProps & StyledThemePropsType>`
   flex: 1;
 `;
 
-export const LabelStyles = styled.span<StyledThemePropsType>`
+export const LabelStyles = styled.span<LabelProps & StyledThemePropsType>`
   font-size: 12px;
   margin-right: 5px;
-  color: ${({ theme }) => theme.colors.dark};
+  color: ${({ theme, error }) => error ? theme.colors.red : theme.colors.dark};
 `;

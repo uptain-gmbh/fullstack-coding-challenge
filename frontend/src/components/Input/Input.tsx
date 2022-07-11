@@ -2,7 +2,13 @@ import React, { FC, useCallback, useState } from "react";
 import { WrapperStyles, InputStyles, LabelStyles } from "./styled";
 import { InputProps } from "./types";
 
-export const Input: FC<InputProps> = ({ value, onChange, label, number }) => {
+export const Input: FC<InputProps> = ({
+  value,
+  onChange,
+  label,
+  number,
+  error,
+}) => {
   const [focused, setFocused] = useState(false);
 
   const onFocusHandler = () => setFocused(true);
@@ -19,7 +25,7 @@ export const Input: FC<InputProps> = ({ value, onChange, label, number }) => {
 
   return (
     <WrapperStyles>
-      <LabelStyles>{label}</LabelStyles>
+      <LabelStyles error={error}>{label}</LabelStyles>
       <InputStyles
         focused={focused}
         value={value}

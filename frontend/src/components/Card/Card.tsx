@@ -9,6 +9,7 @@ import { Button } from "../Button";
 import { emptyGrocery } from "./helpers";
 import { Text } from "../Text";
 import { groceriesSelector, REQUEST_STATUS, useAppSelector } from "../../redux";
+import { grocerySchema } from "../../validation";
 
 export const Card = ({
   data,
@@ -36,11 +37,14 @@ export const Card = ({
     [newGrocery, onItemAdd, onItemEdit]
   );
 
-  const { values, setFieldValue, handleSubmit, dirty, resetForm } = useFormik({
-    initialValues: data ?? emptyGrocery,
-    enableReinitialize: true,
-    onSubmit: submitForm,
-  });
+  const { values, setFieldValue, handleSubmit, dirty, resetForm, errors } =
+    useFormik({
+      initialValues: data ?? emptyGrocery,
+      validationSchema: grocerySchema,
+      enableReinitialize: true,
+      validateOnChange: false,
+      onSubmit: submitForm,
+    });
 
   const handleInputChange = useCallback(
     (field: keyof GroceryModel) => (value: string | IngredientModel[]) => {
@@ -78,17 +82,20 @@ export const Card = ({
         value={values.name}
         label="Name"
         onChange={handleInputChange("name")}
+        error={!!errors.name}
       />
       <TagInput
         value={values.ingredients}
         label="Ingredients"
         onChange={handleInputChange("ingredients")}
+        error={!!errors.ingredients}
       />
       <Input
         value={values.weight.toString()}
         label="Weight"
         onChange={handleInputChange("weight")}
         number
+        error={!!errors.weight}
       />
       {(dirty || newGrocery) && (
         <FooterStyles>

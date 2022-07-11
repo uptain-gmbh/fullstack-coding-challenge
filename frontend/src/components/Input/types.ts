@@ -3,4 +3,5 @@ export interface InputProps {
   onChange: (value: string) => void;
   label: string;
   number?: boolean;
+  error?: boolean;
 }
