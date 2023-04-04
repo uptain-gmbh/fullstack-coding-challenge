@@ -1,0 +1,30 @@
+version: "3.6"
+
+services:
+  dynamodb-admin:
+    image: aaronshaf/dynamodb-admin
+    container_name: dynamodb-admin
+    environment:
+      - DYNAMO_ENDPOINT=http://dynamodb:8000
+      - AWS_REGION=eu-central-1
+    ports:
+      - 8001:8001
+    networks:
+      - coding_challenge
+
+  dynamodb:
+    image:  amazon/dynamodb-local
+    container_name: dynamodb
+    hostname: dynamodb
+    restart: always
+    volumes:
+      -  ./mounted-ddb-data:/home/dynamodblocal/data
+    ports:
+      - 8000:8000
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath /home/dynamodblocal/data/"
+    networks:
+      - coding_challenge
+
+networks:
+  coding_challenge:
+    name: coding_challenge

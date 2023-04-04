@@ -41,3 +41,36 @@ unless they are marked as optional.
 2.  Form for listing and adding items
 3.  (optional) if using a database, orchestrate services with Docker or some differnt technologie.
 
+
+### How to run
+Used node version: `v18.13.0`
+
+1. Install `serverless`, `docker` and `docker-compose`
+2. Run `npm install` in both directories `frontend` and `backend`
+
+#### Run locally 
+3. Run `docker-compose up` in `backend` directory to spin up DynamoDB and a DynamoDB Admin Interface (http://localhost:8001/)
+4. Run `serverless offline` in `backend` directory. Take the endpoint after the offline deployment and supply that one in the `.env` file of the `frontend` directory. It will be most likely http://localhost:3000/
+5. Run `npm start` in `frontend` directory
+
+#### Run on AWS
+3. Setup AWS Credentials if you want to deploy the backend to AWS 
+4. Run `serverless deploy` in the `backend` directory. Take the endpoint after the deployment and supply that one in the `.env` file of the `frontend` directory.
+5. Run `npm start` in `frontend` directory
+
+#### Endpoints
+List Users:
+
+```
+curl --location 'http://localhost:3000/users'
+```
+
+Create User:
+```
+curl --location 'http://localhost:3000/users' \
+--header 'Content-Type: application/json' \
+--data '{
+    "userId": "1",
+    "name": "test"
+}'
+```
